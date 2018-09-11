@@ -95,3 +95,14 @@ functions:
           method: delete
           cors: true
           authorizer: aws_iam
+  blog:
+    # Defines an HTTP API endpoint that calls the main function in get.js
+    # - path: url path is /notes/{id}
+    # - method: GET request
+    handler: blog.main
+    events:
+      - http:
+          path: blog/{userId}
+          method: get
+          cors: true
+          authorizer: aws_iam
